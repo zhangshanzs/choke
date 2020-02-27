@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./lib/jquery.js"></script>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    #angel {
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+  <img src="./angel.gif" alt="" id="angel" />
+
+  <script>
+    var angel = $('#angel');
+
+    // true表示可以执行
+    var flag = true;
+
+    $(document).on('mousemove', function (e) {
+
+      if (!flag) {
+        return;
+      }
+      flag = false;
+
+      setTimeout(function () {
+        angel.css({
+          left: e.pageX,
+          top: e.pageY
+        });
+
+        flag = true;
+      }, 50)
+
+    })
+  </script>
+</body>
+
+</html>
